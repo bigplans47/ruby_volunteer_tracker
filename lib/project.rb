@@ -14,5 +14,8 @@ class Project
  self.title().==(another_object.title).&(self.id().==(another_object.id()))
   end
 
+  def self.all
+    []
+  end
 
 end

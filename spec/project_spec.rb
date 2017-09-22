@@ -25,18 +25,19 @@ describe Project do
   describe '#==' do
     it 'is the same project if two projects have the same title' do
       project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-      # project1.save
+
       project2 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
       project1.==(project2)
-      # binding.pry
+
       expect(project1.==(project2)).to(eq(true))
     end
   end
-  #
-  # context '.all' do
-  #   it 'is empty to start' do
-  #     expect(Project.all).to eq []
-  #   end
+
+  context '.all' do
+    it 'is empty to start' do
+      expect(Project.all).to eq []
+    end
+  end
   #
   #   it 'returns all projects' do
   #     project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
