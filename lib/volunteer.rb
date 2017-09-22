@@ -15,17 +15,18 @@ class Volunteer
  self.name().==(another_object.name).&(self.id().==(another_object.id())).&(self.project_id().==another_object.project_id())
   end
 
- #  def self.all()
- #    returned_projects = DB.exec("SELECT * FROM projects")
- #    list_of_projects = []
- #    returned_projects.each() do |single_project|
- #      title = single_project.fetch("title")
- #      id = single_project.fetch("id").to_i
- #      the_project = Project.new({:title => title, :id => id})
- #      list_of_projects.push(the_project)
- #    end
- #    list_of_projects
- #  end
+  def self.all()
+    returned_volunteers = DB.exec("SELECT * FROM volunteers;")
+    list_of_volunteers = []
+    returned_volunteers.each() do |single_volunteer|
+      name = single_volunteer.fetch("name")
+      project_id = single_volunteer.fetch("project_id")
+      id = single_volunteer.fetch("id").to_i
+      the_volunteer = Project.new({:name => name, :id => id, :project_id => project_id})
+      list_of_volunteers.push(the_volunteer)
+    end
+    list_of_volunteers
+  end
  #
  #  def self.find(project_id_to_find)
  #    found_project = nil
