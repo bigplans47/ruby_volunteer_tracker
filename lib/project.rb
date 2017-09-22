@@ -11,7 +11,7 @@ class Project
   end
 
   def ==(another_object)
-    self.title().==(another_object.title).&(self.id()).==(another_object.id())
+ self.title().==(another_object.title).&(self.id().==(another_object.id()))
   end
 
 
