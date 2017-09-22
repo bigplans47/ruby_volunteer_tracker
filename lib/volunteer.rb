@@ -11,10 +11,10 @@ class Volunteer
  #    @id = result.first().fetch("id").to_i()
  #  end
  #
- #  def ==(another_object)
- # self.title().==(another_object.title).&(self.id().==(another_object.id()))
- #  end
- #
+  def ==(another_object)
+ self.name().==(another_object.name).&(self.id().==(another_object.id())).&(self.project_id().==another_object.project_id())
+  end
+
  #  def self.all()
  #    returned_projects = DB.exec("SELECT * FROM projects")
  #    list_of_projects = []
