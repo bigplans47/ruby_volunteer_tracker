@@ -25,26 +25,34 @@ describe Volunteer do
 
   context '.all' do
     it 'is empty to start' do
-      expect(Volunteer.all).to eq []
+      expect(Volunteer.all2).to eq []
     end
   end
-#
-#     it 'returns all volunteers' do
-#       volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
-#       volunteer1.save
-#       volunteer2 = Volunteer.new({:name => 'Joe', :project_id => 1, :id => nil})
-#       volunteer2.save
-#       expect(Volunteer.all).to eq [volunteer1, volunteer2]
-#     end
-#   end
-#
-#   describe '#save' do
-#     it 'adds a volunteer to the database' do
-#       volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
-#       volunteer1.save
-#       expect(Volunteer.all).to eq [volunteer1]
-#     end
-#   end
+
+  describe '#save2' do
+    it 'adds a volunteer to the database' do
+      # stuff = Project.new({})
+      volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
+      # binding.pry
+      volunteer1.save2
+      # binding.pry
+      Volunteer.all2
+
+      # binding.pry -doesnt make it here
+      expect(Volunteer.all2).to eq [volunteer1]
+    end
+  end
+
+    # it 'returns all volunteers' do
+    #   volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
+    #   volunteer1.save
+    #   volunteer2 = Volunteer.new({:name => 'Joe', :project_id => 1, :id => nil})
+    #   volunteer2.save
+    #   expect(Volunteer.all).to eq [volunteer1, volunteer2]
+    # end
+  # end
+
+
 #
 #   describe '.find' do
 #     it 'returns a volunteer by id' do

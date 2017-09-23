@@ -1,8 +1,8 @@
 class Project
-  attr_reader(:title, :id)
+  attr_reader(:id, :title)
   def initialize(attributes)
-    @title = attributes.fetch(:title)
     @id = attributes.fetch(:id)
+    @title = attributes.fetch(:title)
   end
 
   def save()
@@ -15,11 +15,12 @@ class Project
   end
 
   def self.all()
-    returned_projects = DB.exec("SELECT * FROM projects")
+    returned_projects = DB.exec("SELECT * FROM projects;")
     list_of_projects = []
     returned_projects.each() do |single_project|
-      title = single_project.fetch("title")
       id = single_project.fetch("id").to_i
+      title = single_project.fetch("title")
+      # id = single_project.fetch("id").to_i
       the_project = Project.new({:title => title, :id => id})
       list_of_projects.push(the_project)
     end

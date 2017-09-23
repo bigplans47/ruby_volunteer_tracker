@@ -6,26 +6,32 @@ class Volunteer
     @id = attributes.fetch(:id)
   end
 
- #  def save()
- #    result = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;")
- #    @id = result.first().fetch("id").to_i()
- #  end
+  def save2()
+    result = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', #{@project_id}) RETURNING id;")
+    @id = result.first().fetch("id").to_i()
+    # binding.pry
+  end
  #
   def ==(another_object)
  self.name().==(another_object.name).&(self.id().==(another_object.id())).&(self.project_id().==another_object.project_id())
   end
 
-  def self.all()
+  def self.all2()
     returned_volunteers = DB.exec("SELECT * FROM volunteers;")
+    # binding.pry
     list_of_volunteers = []
+    # binding.pry - works ok to here
     returned_volunteers.each() do |single_volunteer|
-      name = single_volunteer.fetch("name")
-      project_id = single_volunteer.fetch("project_id")
       id = single_volunteer.fetch("id").to_i
-      the_volunteer = Project.new({:name => name, :id => id, :project_id => project_id})
+      name = single_volunteer.fetch("name")
+      project_id = single_volunteer.fetch("project_id").to_i
+
+      # binding.pry
+      the_volunteer = Volunteer.new({:name => name, :id => id, :project_id => project_id})
       list_of_volunteers.push(the_volunteer)
     end
     list_of_volunteers
+    # binding.pry
   end
  #
  #  def self.find(project_id_to_find)
