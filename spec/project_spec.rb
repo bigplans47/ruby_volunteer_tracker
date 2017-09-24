@@ -78,7 +78,7 @@ describe Project do
       volunteer2 = Volunteer.new({:name => 'Joe', :project_id => project.id, :id => nil})
       volunteer2.save
       ans = project.volunteers
-      binding.pry
+      # binding.pry
       expect(project.volunteers).to eq [volunteer1, volunteer2]
     end
   end

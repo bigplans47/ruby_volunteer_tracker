@@ -40,10 +40,18 @@ class Project
 
   def volunteers
     # preresult =  DB.exec("SELECT * FROM volunteers;")
+    project_volunteers = []
     result = DB.exec("SELECT * FROM volunteers WHERE project_id = #{@id};")
-    # binding.pry
+    result.each do |single_volunteer2|
+      name = single_volunteer2.fetch("name")
+      project_id = single_volunteer2.fetch("project_id").to_i
+      id = single_volunteer2.fetch("id").to_i
+      single_volunteer3 = Volunteer.new({:name => name, :project_id => project_id, :id => id})
+      project_volunteers.push(single_volunteer3)
+    end
+    project_volunteers
   end
-
+# :name, :project_id, :id
 
   # def self.update(new_title)
   #   project = (Project.find(self.id))
