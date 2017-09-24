@@ -6,7 +6,7 @@ class Volunteer
     @id = attributes.fetch(:id)
   end
 
-  def save2()
+  def save()
     result = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', #{@project_id}) RETURNING id;")
     @id = result.first().fetch("id").to_i()
     # binding.pry
@@ -16,7 +16,7 @@ class Volunteer
  self.name().==(another_object.name).&(self.id().==(another_object.id())).&(self.project_id().==another_object.project_id())
   end
 
-  def self.all2()
+  def self.all()
     returned_volunteers = DB.exec("SELECT * FROM volunteers;")
     # binding.pry
     list_of_volunteers = []

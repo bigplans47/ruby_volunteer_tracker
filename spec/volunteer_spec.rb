@@ -25,21 +25,19 @@ describe Volunteer do
 
   context '.all' do
     it 'is empty to start' do
-      expect(Volunteer.all2).to eq []
+      expect(Volunteer.all).to eq []
     end
   end
 
-  describe '#save2' do
+  describe '#save' do
     it 'adds a volunteer to the database' do
       # stuff = Project.new({})
       volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
       # binding.pry
-      volunteer1.save2
+      volunteer1.save
       # binding.pry
-      Volunteer.all2
-
-      # binding.pry -doesnt make it here
-      expect(Volunteer.all2).to eq [volunteer1]
+      Volunteer.all
+      expect(Volunteer.all).to eq [volunteer1]
     end
   end
 
