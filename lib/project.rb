@@ -38,8 +38,17 @@ class Project
   end
 
 
+  def volunteers
+    # preresult =  DB.exec("SELECT * FROM volunteers;")
+    result = DB.exec("SELECT * FROM volunteers WHERE project_id = #{@id};")
+    # binding.pry
+  end
 
 
+  # def self.update(new_title)
+  #   project = (Project.find(self.id))
+  #   project.title = new_title
+  # end
 
 
 
