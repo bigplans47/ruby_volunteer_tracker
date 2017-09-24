@@ -33,23 +33,16 @@ class Volunteer
     list_of_volunteers
     # binding.pry
   end
- #
- #  def self.find(project_id_to_find)
- #    found_project = nil
- #    Project.all().each do |single_project|
- #      if single_project.id().==(project_id_to_find)
- #         found_project = single_project
- #      end
- #    end
- #    found_project
- #  end
- #
-
-
-
-
-
-
+  #
+  # def self.find(project_id_to_find)
+  #   found_project = nil
+  #   Project.all().each do |single_project|
+  #     if single_project.id().==(project_id_to_find)
+  #        found_project = single_project
+  #     end
+  #   end
+  #   found_project
+  # end
 
 
 
