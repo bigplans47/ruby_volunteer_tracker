@@ -20,3 +20,26 @@ post('/') do
   @project_list = Project.all()
   erb(:index)
 end
+
+get('/project/:id') do
+  # i need to get the id to find the project
+  @id = params.fetch("id").to_i
+  @the_project = Project.find(@id)
+  erb(:project)
+end
+
+get('/project/:id/edit') do
+  # i need to get the id to find the project
+  @id = params.fetch("id").to_i
+  @the_project = Project.find(@id)
+  erb(:project_edit)
+end
+
+post('/project/:id/edit') do
+  # i need to get the id to find the project
+  project_title = params.fetch("title")
+  @id = params.fetch("id").to_i
+  @the_project = Project.find(@id)
+  @the_project.update({:title => project_title})
+  erb(:project_edit)
+end
