@@ -54,12 +54,15 @@ class Project
   end
 
 
-  # def self.update(new_title)
   def update(attributes)
     @id = self.id
     @title = attributes.fetch(:title)
     result = DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
+  end
 
+  def delete
+    @id = self.id
+    result = DB.exec("DELETE FROM projects WHERE id = #{@id};")
   end
 
 
