@@ -31,14 +31,17 @@ get('/projects/:id') do
 end
 
 post('/projects/:id') do
-  @id = params.fetch("id").to_i
-  name = params.fetch("name")
-  volunteer = Volunteer.new({:project_id => @id, :name => name})
+  project_id = params.fetch("project_id").to_i
+  @name = params.fetch("name")
+  @project_list = Project.all()
+  @the_project = Project.find(project_id)
+
+  volunteer = Volunteer.new({:name => @name, :project_id => project_id, :id => nil})
+  # volunteer.name
+  # volunteer.project_id
   volunteer.save
   @volunteer_list = Volunteer.all()
-  @the_project = Project.find(@id)
   erb(:project)
-
 end
 
 get('/project/:id/edit_title') do
