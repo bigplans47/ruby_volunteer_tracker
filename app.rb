@@ -88,7 +88,9 @@ end
 
 post('/projects/volunteer/:id') do
   # note this id is volunteer id not project id
+  volunteer_name = params.fetch("name")
   @id = params.fetch("id").to_i
   @the_volunteer = Volunteer.find(@id)
+  @the_volunteer.update({:name => volunteer_name})
   erb(:volunteer_edit)
 end
