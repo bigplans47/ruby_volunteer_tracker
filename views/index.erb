@@ -1,10 +1,21 @@
+<p>Hello!</p>
 <div class="container jumbotron">
     <h2>Welcome add a project below or click a link of a project</h2>
 </div>
+
 <form action="/" method="post">
   <div class="form-container">
-    <label for="title">Title of Project</label>
-    <input type="text" name="title" class="form-control">
+    <label for="title" class="form-label">Title of Project</label>
+    <input type="text" name="title" class="form-control" id=name placeholder="project name">
+    <button type="submit" class="btn btn primary">Create Project</button>
   </div>
-  <button type="submit" name="btn btn primary">Add</button>
+
 </form>
+
+<% if @project_list.any?()%>
+  <p>Here are your projects</p>
+  <% @project_list.each() do |single_project| %>
+    <a href="/project/<%= single_project.id %>"><li><%=single_project.title%></li></a>
+    <% z %>
+  <% end %>
+<% end %>
