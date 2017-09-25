@@ -21,14 +21,11 @@ describe Project do
       expect(project.id).to be_an_instance_of Integer
     end
 
-
   describe '#==' do
     it 'is the same project if two projects have the same title' do
       project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-
       project2 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
       project1.==(project2)
-
       expect(project1.==(project2)).to(eq(true))
     end
   end
@@ -38,7 +35,7 @@ describe Project do
       expect(Project.all).to eq []
     end
   end
-  #
+
     it 'returns all projects' do
       project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
       project1.save
@@ -47,7 +44,7 @@ describe Project do
       # binding.pry
       expect(Project.all).to eq [project1, project2]
     end
-  #
+
   describe '#save' do
     it 'saves a project to the database' do
       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
@@ -63,7 +60,6 @@ describe Project do
       project1.save
       project2 = Project.new({:title => 'Teaching Ruby to Kids', :id => nil})
       project2.save
-      # binding.pry
       expect(Project.find(project1.id)).to eq project1
     end
   end

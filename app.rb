@@ -22,7 +22,6 @@ post('/') do
 end
 
 get('/projects/:id') do
-  # i need to get the id to find the project
   @id = params.fetch("id").to_i
   @project_list = Project.all()
   @the_project = Project.find(@id)
@@ -42,14 +41,12 @@ post('/projects/:id') do
 end
 
 get('/project/:id/edit_title') do
-  # i need to get the id to find the project
   @id = params.fetch("id").to_i
   @the_project = Project.find(@id)
   erb(:project_edit)
 end
 
 post('/project/:id/edit_title') do
-  # i need to get the id to find the project
   project_title = params.fetch("title")
   @id = params.fetch("id").to_i
   @the_project = Project.find(@id)
@@ -64,7 +61,6 @@ get('/projects/:id/edit') do
 end
 
 post('/projects/:id/edit') do
-  # i need to get the id to find the project
   @id = params.fetch("id").to_i
   @the_project = Project.find(@id)
   @the_project.delete

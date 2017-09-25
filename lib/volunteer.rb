@@ -51,7 +51,4 @@ class Volunteer
     result = DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
   end
 
-
-
-
 end

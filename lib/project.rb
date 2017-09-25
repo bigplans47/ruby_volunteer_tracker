@@ -37,7 +37,6 @@ class Project
     found_project
   end
 
-
   def volunteers
     # preresult =  DB.exec("SELECT * FROM volunteers;")
     @id = self.id
@@ -53,7 +52,6 @@ class Project
     project_volunteers
   end
 
-
   def update(attributes)
     @id = self.id
     @title = attributes.fetch(:title)
@@ -64,11 +62,5 @@ class Project
     @id = self.id
     result = DB.exec("DELETE FROM projects WHERE id = #{@id};")
   end
-
-
-
-
-
-
 
 end

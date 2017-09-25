@@ -31,11 +31,8 @@ describe Volunteer do
 
   describe '#save' do
     it 'adds a volunteer to the database' do
-      # stuff = Project.new({})
       volunteer1 = Volunteer.new({:name => 'Jane', :project_id => 1, :id => nil})
-      # binding.pry
       volunteer1.save
-      # binding.pry
       Volunteer.all
       expect(Volunteer.all).to eq [volunteer1]
     end
@@ -67,6 +64,5 @@ describe Volunteer do
       expect(volunteer.name).to eq 'Jennifer'
     end
   end
-
 
 end
