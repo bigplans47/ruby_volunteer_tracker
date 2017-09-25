@@ -1,5 +1,26 @@
 <p>The project is: <%= @the_project.title %></p>
 
+<p>Add a volunteer below and adjust volunteers with hyperlink below</p>
+
+<!-- need to add a form to add a volunteer to the project -->
+<form action="/projects/:id" method="post">
+  <div class="form-group">
+    <label for="Volunteer" class="form-label">Volunteer Name</label>
+    <input type="text" name="name" class="form-control" id="name" placeholder="volunteer name">
+    <button type="submit" class="btn btn-primary">Create Volunteer</button>
+  </div>
+</form>
+
+<% if @volunteer_list.any?()%>
+  <p>Here are your volunteers</p>
+  <% @volunteer_list.each() do |single_volunteer| %>
+    <a href="/projects/<%= single_volunteer.id %>"><li><%=single_volunteer.name%></li></a>
+  <% end %>
+<% else %>
+    <p>There are no volunteers</p>
+<% end %>
+<br>
+
 <a href="/project/<%= @the_project.id %>/edit_title">Edit Project</a>
 <br>
 

@@ -13,7 +13,7 @@
 <% if @project_list.any?()%>
   <p>Here are your projects</p>
   <% @project_list.each() do |single_project| %>
-    <a href="/project/<%= single_project.id %>"><li><%=single_project.title%></li></a>
+    <a href="/projects/<%= single_project.id %>"><li><%=single_project.title%></li></a>
   <% end %>
 <% else %>
     <p>There are no projects</p>

@@ -21,11 +21,24 @@ post('/') do
   erb(:index)
 end
 
-get('/project/:id') do
+get('/projects/:id') do
   # i need to get the id to find the project
   @id = params.fetch("id").to_i
+  @project_list = Project.all()
+  @the_project = Project.find(@id)
+  @volunteer_list = Volunteer.all()
+  erb(:project)
+end
+
+post('/projects/:id') do
+  @id = params.fetch("id").to_i
+  name = params.fetch("name")
+  volunteer = Volunteer.new({:project_id => @id, :name => name})
+  volunteer.save
+  @volunteer_list = Volunteer.all()
   @the_project = Project.find(@id)
   erb(:project)
+
 end
 
 get('/project/:id/edit_title') do
