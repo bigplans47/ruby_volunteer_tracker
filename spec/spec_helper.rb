@@ -1,6 +1,5 @@
 require "project"
 require "volunteer"
-# require "project"
 require "rspec"
 require "pry"
 require "pg"
