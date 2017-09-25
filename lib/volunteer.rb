@@ -45,6 +45,12 @@ class Volunteer
     found_volunteer
   end
 
+  def update(attributes)
+    @id = self.id
+    @name = attributes.fetch(:name)
+    result = DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
+  end
+
 
 
 
