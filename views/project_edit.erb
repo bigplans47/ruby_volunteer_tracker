@@ -1,11 +1,12 @@
 Rename project by typing a new title for it below, the current title is: <%= @the_project.title %>
 <br>
-<form action="/project/<%= @the_project.id %>/edit" method="post">
+<form action="/project/<%= @the_project.id %>/edit_title" method="post">
   <div class="form-group">
     <label for="title" class="form-label">Title of Project</label>
     <input type="text" name="title" class="form-control" id="name" placeholder="project name">
     <button type="submit" class="btn btn-primary">Update Project</button>
   </div>
+  <br>
 </form>
 
 <a href="/">Home</a>
