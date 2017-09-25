@@ -35,10 +35,7 @@ post('/projects/:id') do
   @name = params.fetch("name")
   @project_list = Project.all()
   @the_project = Project.find(project_id)
-
   volunteer = Volunteer.new({:name => @name, :project_id => project_id, :id => nil})
-  # volunteer.name
-  # volunteer.project_id
   volunteer.save
   @volunteer_list = Volunteer.all()
   erb(:project)
@@ -80,4 +77,18 @@ post('/home/:id') do
   @the_project.delete
   @project_list = Project.all()
   erb(:index)
+end
+
+get('/projects/volunteer/:id') do
+  # note this id is volunteer id not project id
+  @id = params.fetch("id").to_i
+  @the_volunteer = Volunteer.find(@id)
+  erb(:volunteer_edit)
+end
+
+post('/projects/volunteer/:id') do
+  # note this id is volunteer id not project id
+  @id = params.fetch("id").to_i
+  @the_volunteer = Volunteer.find(@id)
+  erb(:volunteer_edit)
 end

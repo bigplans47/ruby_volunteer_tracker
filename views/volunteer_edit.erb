@@ -1,0 +1,12 @@
+<p>Rename volunteer by typing a new name for it below, the current name is: <%= @the_volunteer.name %></p>
+<br>
+<form action="/projects/volunteer/<%= @the_volunteer.id %>" method="post">
+  <div class="form-group">
+    <label for="name" class="form-label">Volunteer Name</label>
+    <input type="text" name="name" class="form-control" id="name" placeholder="name">
+    <button type="submit" class="btn btn-primary">Update Volunteer</button>
+  </div>
+  <br>
+</form>
+
+<a href="/">Home</a>
