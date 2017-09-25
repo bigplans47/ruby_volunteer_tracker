@@ -40,6 +40,7 @@ class Project
 
   def volunteers
     # preresult =  DB.exec("SELECT * FROM volunteers;")
+    @id = self.id
     project_volunteers = []
     result = DB.exec("SELECT * FROM volunteers WHERE project_id = #{@id};")
     result.each do |single_volunteer2|
@@ -51,12 +52,15 @@ class Project
     end
     project_volunteers
   end
-# :name, :project_id, :id
+
 
   # def self.update(new_title)
-  #   project = (Project.find(self.id))
-  #   project.title = new_title
-  # end
+  def update(attributes)
+    @id = self.id
+    @title = attributes.fetch(:title)
+    result = DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
+
+  end
 
 
 
